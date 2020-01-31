@@ -1,3 +1,4 @@
+
 class Node:
   def __init__(self, value=None, next_node=None):
     # the value at this linked list node
@@ -43,5 +44,29 @@ class LinkedList:
     return False
 
   def reverse_list(self):
-    # TO BE COMPLETED
-    pass
+      # TO BE COMPLETED
+      # pass
+      # From README: _Without_ making it a Doubly Linked List (adding a tail attribute)
+      # For example,
+          # ```
+          # 1->2->3->None
+          # ```
+          # would become...
+          # ```
+          # 3->2->1->None
+          # ```
+      # set current node to head and prev node to none
+      currentNode = self.head
+      prevNode = None
+      # Iterate thru linked list, while current node does not equal none
+      while currentNode != None:
+          # store next node
+          nextNode = currentNode.get_next()
+          # set the next of current node to prev node
+          currentNode.set_next(prevNode)
+          # set prev node to current node
+          prevNode = currentNode
+          # set current node to next node
+          currentNode = nextNode
+      # while current node does equal none set head to prev node
+      self.head = prevNode
